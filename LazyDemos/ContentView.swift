@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var columns = [
+        GridItem(.fixed(110)),
+        GridItem(.fixed(150)),
+        GridItem(.fixed(110))
+    ]
     var body: some View {
         
         ScrollView {
             
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+            LazyVGrid(columns: columns) {
                 ForEach(0..<1000) { i in
                     let _ = print("Dang \(i)")
                     RedAndCyanView()
